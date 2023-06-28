@@ -15,3 +15,6 @@
 28-06-2023  15:08:51  066ff7fd-0533-4033-b7e4-6a81e472ff6c  Unexpected token } in JSON at position 97
 28-06-2023  15:09:19  a67aa2dc-607f-4336-abb9-3ca80cecbb95  Name of Dog must be unique!
 28-06-2023  15:17:34  77242a27-f3f5-44fc-8e34-95daf975477d  notNull Violation: Dog.weight cannot be null
+28-06-2023  16:14:59  bde51976-acc2-4c5e-b3fb-ac2945cb1c86  Name of Dog must be unique!
+28-06-2023  16:19:45  982b553b-62a2-47f7-937c-4e7e0ae8a4c2  Tail must be positive number
+28-06-2023  16:19:59  102c110d-3cb4-49b3-9a0e-c8e2c8386661  Name must contains at least 2 symbols
