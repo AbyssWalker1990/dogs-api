@@ -13,8 +13,9 @@ class DogService {
       const createdDog = await Dog.create(dogData)
       return createdDog
     } catch (error: any) {
+      console.log(JSON.stringify(error, null, 2))
       if (error.name === 'SequelizeUniqueConstraintError') throw new HttpException(409, 'Name of Dog must be unique!')
-      throw new HttpException(500, error.message)
+      throw new HttpException(400, error.message)
     }
   }
 }

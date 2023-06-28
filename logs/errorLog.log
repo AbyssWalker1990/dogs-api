@@ -12,3 +12,6 @@
 28-06-2023  14:59:26  09a86718-eae0-4a8a-b29a-f7254c779699  Name of Dog must be unique!
 28-06-2023  14:59:47  419da506-ee4e-4dd7-b24a-e1fcf499ec1d  Validation error
 28-06-2023  15:01:23  b01b4c22-60da-4c67-a5de-ed11e4664239  Name of Dog must be unique!
+28-06-2023  15:08:51  066ff7fd-0533-4033-b7e4-6a81e472ff6c  Unexpected token } in JSON at position 97
+28-06-2023  15:09:19  a67aa2dc-607f-4336-abb9-3ca80cecbb95  Name of Dog must be unique!
+28-06-2023  15:17:34  77242a27-f3f5-44fc-8e34-95daf975477d  notNull Violation: Dog.weight cannot be null

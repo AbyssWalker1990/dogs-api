@@ -27,14 +27,15 @@ Dog.init({
     },
     color: {
         type: DataTypes.STRING,
-        allowNull: false,
-
+        allowNull: false
     },
     tail_length: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     weight: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     sequelize
