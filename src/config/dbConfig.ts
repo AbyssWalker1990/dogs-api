@@ -1,7 +1,7 @@
 const dbOptions = {
-  "dbName": "dog-api",
+  "dbName": "dogs",
   "dbConfig": {
-    "server": "localhost",
+    "server": "mssql",
     "options": {
       "port": 1433,
       "trustServerCertificate": true
@@ -10,7 +10,7 @@ const dbOptions = {
       "type": "default",
       "options": {
         "userName": "sa",
-        "password": "Overcaqlacng#1990"
+        "password": "StrongPass#123"
       }
     }
   }

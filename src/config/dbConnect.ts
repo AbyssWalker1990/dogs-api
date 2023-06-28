@@ -30,6 +30,14 @@ async function initialize () {
 
   // sync all models with database
   await sequelize.sync({ alter: true });
+  const example = {
+    "name": "Neo",
+    "color": "red&amber",
+    "tail_length": 22,
+    "weight": 32
+  }
+  const neo = await db.dog?.create(example)
+  console.log('NEO: ', neo)
 }
 
 async function ensureDbExists (dbName: string): Promise<void> {
