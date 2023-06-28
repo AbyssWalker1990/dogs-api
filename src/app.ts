@@ -1,5 +1,7 @@
 import express from 'express'
 import Controller from './interfaces/controller.interface'
+import cors from 'cors'
+import corsOptions from './config/corsOptions'
 
 class App {
   public app: express.Application
@@ -23,6 +25,7 @@ class App {
   }
 
   private initMiddlewares (): void {
+    this.app.use(cors(corsOptions))
     this.app.use(express.urlencoded({ extended: false }))
     this.app.use(express.json())
   }

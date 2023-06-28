@@ -1,4 +1,4 @@
-import { DataTypes, Model, Optional } from 'sequelize'
+import { DataTypes, Model } from 'sequelize'
 import sequelize from '../config/Sequelize'
 
 interface DogAttribute {
@@ -8,7 +8,7 @@ interface DogAttribute {
     weight: number
 }
 
-export interface DogInput extends Optional<DogAttribute, 'name'> { }
+export interface DogInput extends Required<DogAttribute> { }
 export interface DogOuput extends Required<DogAttribute> { }
 
 class Dog extends Model<DogAttribute, DogInput> implements DogAttribute {
@@ -21,7 +21,8 @@ class Dog extends Model<DogAttribute, DogInput> implements DogAttribute {
 Dog.init({
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     },
     color: {
         type: DataTypes.STRING,
