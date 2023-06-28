@@ -1,4 +1,4 @@
-[
+const initialData = [
     {
         "name": "Neo",
         "color": "red&amber",
@@ -12,3 +12,5 @@
         "weight": 14
     }
 ]
+
+export default initialData
