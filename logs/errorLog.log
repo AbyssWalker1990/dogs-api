@@ -18,3 +18,6 @@
 28-06-2023  16:14:59  bde51976-acc2-4c5e-b3fb-ac2945cb1c86  Name of Dog must be unique!
 28-06-2023  16:19:45  982b553b-62a2-47f7-937c-4e7e0ae8a4c2  Tail must be positive number
 28-06-2023  16:19:59  102c110d-3cb4-49b3-9a0e-c8e2c8386661  Name must contains at least 2 symbols
+28-06-2023  17:50:11  b759690a-2f81-4ea1-913a-e71e691aa030  Invalid object name 'Dogs'.
+28-06-2023  17:51:55  be0d06e1-6b9a-4407-bbd7-31284d5ea5d0  Invalid object name 'Dogs'.
+28-06-2023  17:55:10  b1379012-79d1-4ac7-a0e7-ec746e49da19  color must be longer than or equal to 4 characters

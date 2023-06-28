@@ -7,7 +7,7 @@ class DogDTO {
   @IsString()
   public name: string
 
-  @MinLength(4)
+  @MinLength(3)
   @IsString()
   public color: string
 

@@ -20,7 +20,7 @@ class DogController implements Controller {
   }
 
   private readonly getAllDogsHandler = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const allDogs = await this.dogService.getAllDogs()
+    const allDogs = await this.dogService.getAllDogs(req)
     res.status(200).json(allDogs)
     next()
   }
