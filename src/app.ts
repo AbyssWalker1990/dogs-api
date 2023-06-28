@@ -2,6 +2,7 @@ import express from 'express'
 import Controller from './interfaces/controller.interface'
 import cors from 'cors'
 import corsOptions from './config/corsOptions'
+import errorMiddleware from './middleware/errorMiddleware'
 
 class App {
   public app: express.Application
@@ -16,6 +17,7 @@ class App {
     this.app.get('/', (req, res) => {
       res.send('Hello World')
     })
+    this.initErrorMiddleware()
   }
 
   private initControllers (controllers: Controller[]): void {
@@ -28,6 +30,10 @@ class App {
     this.app.use(cors(corsOptions))
     this.app.use(express.urlencoded({ extended: false }))
     this.app.use(express.json())
+  }
+
+  private initErrorMiddleware (): void {
+    this.app.use(errorMiddleware)
   }
 
   public listen (): void {

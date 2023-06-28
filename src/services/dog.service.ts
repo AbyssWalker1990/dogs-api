@@ -1,3 +1,4 @@
+import HttpException from "../exeptions/HttpException"
 import Dog from "../models/Dog"
 import { DogOuput, DogInput } from "../models/Dog"
 
@@ -6,10 +7,15 @@ class DogService {
     return await Dog.findAll()
   }
 
-  public createDog = async (dogData: DogInput): Promise<DogOuput> => {
+  public createDog = async (dogData: DogInput): Promise<DogOuput | undefined> => {
     console.log('trigger service create')
-    const createdDog = await Dog.create(dogData)
-    return createdDog
+    try {
+      const createdDog = await Dog.create(dogData)
+      return createdDog
+    } catch (error: any) {
+      if (error.name === 'SequelizeUniqueConstraintError') throw new HttpException(409, 'Name of Dog must be unique!')
+      throw new HttpException(500, error.message)
+    }
   }
 }
 

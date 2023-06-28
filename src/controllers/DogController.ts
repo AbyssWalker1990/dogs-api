@@ -25,9 +25,12 @@ class DogController implements Controller {
 
   private readonly createDogHandler = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const dogData = req.body
-    console.log('dogData: ', dogData)
-    const createdDog = await this.dogService.createDog(dogData)
-    res.status(201).json(createdDog)
+    try {
+      const createdDog = await this.dogService.createDog(dogData)
+      res.status(201).json(createdDog)
+    } catch (error) {
+      next(error)
+    }
   }
 }
 

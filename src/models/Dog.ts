@@ -22,7 +22,8 @@ Dog.init({
     name: {
         type: DataTypes.STRING,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        unique: true
     },
     color: {
         type: DataTypes.STRING,
