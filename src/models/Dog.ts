@@ -16,11 +16,6 @@ class Dog extends Model<DogAttribute, DogInput> implements DogAttribute {
     public color!: string
     public tail_length!: number
     public weight!: number
-
-    // timestamps!
-    public readonly createdAt!: Date;
-    public readonly updatedAt!: Date;
-    public readonly deletedAt!: Date;
 }
 
 Dog.init({
@@ -40,9 +35,7 @@ Dog.init({
         type: DataTypes.INTEGER
     }
 }, {
-    timestamps: true,
-    sequelize,
-    paranoid: true
+    sequelize
 })
 
 export default Dog

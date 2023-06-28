@@ -1,16 +1,24 @@
 import express from 'express'
+import Controller from './interfaces/controller.interface'
 
 class App {
   public app: express.Application
   public port: number
 
-  constructor (port: number) {
+  constructor (controllers: Controller[], port: number) {
     this.app = express()
     this.port = port
 
     this.initMiddlewares()
+    this.initControllers(controllers)
     this.app.get('/', (req, res) => {
       res.send('Hello World')
+    })
+  }
+
+  private initControllers (controllers: Controller[]): void {
+    controllers.forEach((controller) => {
+      this.app.use('/', controller.router)
     })
   }
 
