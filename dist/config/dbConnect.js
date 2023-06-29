@@ -22,7 +22,7 @@ const HttpException_1 = __importDefault(require("../exeptions/HttpException"));
 const { dbName, dbConfig } = dbConfig_1.default;
 function initialize() {
     return __awaiter(this, void 0, void 0, function* () {
-        ensureDbExists(dbName);
+        yield ensureDbExists(dbName);
         yield Dog_1.default.sync({ alter: true });
         yield Sequelize_1.default.sync({ alter: true });
         yield (0, initialScript_1.default)();
@@ -30,15 +30,41 @@ function initialize() {
 }
 exports.initialize = initialize;
 function ensureDbExists(dbName) {
-    const query = `IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '${dbName}') CREATE DATABASE [${dbName}];`;
-    const connection = new tedious_1.Connection(dbConfig);
-    const request = new tedious_1.Request(query, err => {
-        if (err)
-            throw new HttpException_1.default(500, err.message);
-    });
-    connection.connect(err => {
-        if (err)
-            throw new HttpException_1.default(500, err.message);
-        connection.execSql(request);
+    return __awaiter(this, void 0, void 0, function* () {
+        const query = `IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '${dbName}') CREATE DATABASE [${dbName}];`;
+        const connection = new tedious_1.Connection(dbConfig);
+        const request = new tedious_1.Request(query, err => {
+            if (err)
+                throw new HttpException_1.default(500, err.message);
+        });
+        return new Promise((resolve, reject) => {
+            connection.connect(err => {
+                if (err)
+                    reject(new HttpException_1.default(500, err.message));
+                connection.execSql(request);
+            });
+            resolve();
+        });
     });
 }
+// async function ensureDbExists (dbName: string): Promise<void> {
+//   return new Promise((resolve, reject) => {
+//     const connection = new Connection(dbConfig);
+//     connection.connect((err) => {
+//       if (err) {
+//         console.error(err);
+//         reject(`Connection Failed: ${err.message}`);
+//       }
+//       const createDbQuery = `IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '${dbName}') CREATE DATABASE [${dbName}];`;
+//       const request = new Request(createDbQuery, (err) => {
+//         if (err) {
+//           console.error(err);
+//           reject(`Create DB Query Failed: ${err.message}`);
+//         }
+//         // query executed successfully
+//         resolve()
+//       });
+//       connection.execSql(request);
+//     });
+//   });
+// }

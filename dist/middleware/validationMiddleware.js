@@ -8,7 +8,6 @@ const class_validator_1 = require("class-validator");
 const HttpException_1 = __importDefault(require("../exeptions/HttpException"));
 function validationMiddleware(type) {
     return (req, res, next) => {
-        console.log('start validation');
         (0, class_validator_1.validate)((0, class_transformer_1.plainToInstance)(type, req.body))
             .then((errors) => {
             if (errors.length > 0) {
@@ -23,7 +22,6 @@ function validationMiddleware(type) {
                 next(new HttpException_1.default(400, message));
             }
             else {
-                console.log('Pass validation');
                 next();
             }
         })
