@@ -5,7 +5,6 @@ import HttpException from '../exeptions/HttpException'
 
 function validationMiddleware (type: any): RequestHandler {
   return (req, res, next) => {
-    console.log('start validation')
     validate(plainToInstance(type, req.body))
       .then((errors: ValidationError[]) => {
         if (errors.length > 0) {
@@ -18,7 +17,6 @@ function validationMiddleware (type: any): RequestHandler {
           }).join(', ')
           next(new HttpException(400, message))
         } else {
-          console.log('Pass validation')
           next()
         }
       })
