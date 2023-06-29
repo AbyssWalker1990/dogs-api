@@ -7,18 +7,10 @@ import NewDog from '../models/Dog'
 const { dbName, dbConfig } = dbOptions
 
 export async function initialize () {
-
-  // create db if it doesn't already exist
   await ensureDbExists(dbName);
-
-  // connect to db
-  // const sequelize = new Sequelize(dbName, userName, password, { host, dialect });
-
-  // sync all models with database
   await NewDog.sync({ alter: true })
   await sequelize.sync({ alter: true });
   await addInitialData()
-  return sequelize
 }
 
 async function ensureDbExists (dbName: string): Promise<void> {
@@ -34,10 +26,9 @@ async function ensureDbExists (dbName: string): Promise<void> {
       const request = new Request(createDbQuery, (err) => {
         if (err) {
           console.error(err);
-          reject(`Create DB Query Failed: ${err.message}`);
+          reject(console.log(`Create DB Query Failed: ${err.message}`));
         }
 
-        // query executed successfull
         resolve();
       });
 

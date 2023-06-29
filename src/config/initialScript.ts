@@ -1,17 +1,11 @@
 import initialData from './initialData'
-import Dog from '../models/Dog'
+import Dog, { DogOuput } from '../models/Dog'
 
-
-const addInitialData = async () => {
+const addInitialData = async (): Promise<void> => {
   if (await isAlreadyExists()) return
-  initialData.map((async element => {
-    await Dog.create(element)
-  }))
+  initialData.map(async element => await Dog.create(element))
 }
 
-const isAlreadyExists = async () => {
-  const dog = await Dog.findOne({ where: { name: 'Neo' } })
-  return dog
-}
+const isAlreadyExists = async (): Promise<DogOuput | null> => await Dog.findOne({ where: { name: 'Neo' } })
 
 export default addInitialData
