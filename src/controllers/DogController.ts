@@ -22,7 +22,6 @@ class DogController implements Controller {
   private readonly getAllDogsHandler = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const allDogs = await this.dogService.getDogs(req)
     res.status(200).json(allDogs)
-    next()
   }
 
   private readonly createDogHandler = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -30,7 +29,6 @@ class DogController implements Controller {
     try {
       const createdDog = await this.dogService.createDog(dogData)
       res.status(201).json(createdDog)
-      next()
     } catch (error) {
       next(error)
     }

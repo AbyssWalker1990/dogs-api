@@ -21,3 +21,12 @@
 28-06-2023  17:50:11  b759690a-2f81-4ea1-913a-e71e691aa030  Invalid object name 'Dogs'.
 28-06-2023  17:51:55  be0d06e1-6b9a-4407-bbd7-31284d5ea5d0  Invalid object name 'Dogs'.
 28-06-2023  17:55:10  b1379012-79d1-4ac7-a0e7-ec746e49da19  color must be longer than or equal to 4 characters
+29-06-2023  18:24:57  82725b8f-0089-439f-86b3-403c09b26fff  Name of Dog must be unique!
+29-06-2023  18:25:09  df9296ea-de76-410a-b4b9-16aa355af5bb  color must be a string,color must be longer than or equal to 3 characters
+29-06-2023  18:25:51  860548ad-eecf-4acb-80fe-40279143f276  Tail must be positive number
+29-06-2023  18:27:09  2e2b444b-310b-498e-82d8-e8419ec05450  Tail must be positive number
+29-06-2023  18:27:26  561d42eb-df91-40ef-ad85-35ae354aa0a3  Tail must be positive number
+29-06-2023  18:28:32  b2637a13-f289-4f59-b38a-145c7e8564a5  Name of Dog must be unique!
+29-06-2023  18:45:39  24fb60d6-53c1-4026-b7d9-b380eb62c3f8  Name of Dog must be unique!
+29-06-2023  18:45:47  224a7014-6b5c-4a02-9d02-cfd18f1175a5  Tail must be positive number
+29-06-2023  18:45:55  f8ed973a-50bd-4829-aa6e-742ba6cd2a6c  color must be a string,color must be longer than or equal to 3 characters

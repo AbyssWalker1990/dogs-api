@@ -1,5 +1,5 @@
 export interface DogsParams {
-  page: number
+  pageNumber: number
   pageSize: number
   attribute: Attribute
   order: Order
